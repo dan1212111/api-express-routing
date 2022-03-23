@@ -34,7 +34,8 @@ app.post("/users", (req, res) => {
 
 /* FILMS ENDPOINT */
 app.get("/films", (req, res) => {
-  res.json({films: data.films})
+  const films = data.films.filter( film => film.director === req.query.director)
+  res.json({films: films})
 })
 
 app.get("/films/:id", (req, res) => {
